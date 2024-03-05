@@ -11,7 +11,12 @@ public class GameManager : MonoBehaviour
 
     public bool startPlaying;
 
-    public BeatScroller theBS;
+    //public BeatScroller theBS;
+    public TopToDownScroller theTopToDown;
+    public RightToCenterScroller theRightToCenter;
+    public Left45Scroller theLeft45;
+    public Right45Scroller theRight45;
+
     public ChildrenController theCC;
 
     public static GameManager instance;
@@ -48,7 +53,12 @@ public class GameManager : MonoBehaviour
             {
                 startPlaying = true;
 
-                theBS.hasStarted = true;
+                //theBS.hasStarted = true;
+                theTopToDown.hasStarted = true;
+                theRightToCenter.hasStarted = true;
+                theLeft45.hasStarted = true;
+                theRight45.hasStarted = true;
+
                 theCC.hasStarted = true;
 
                 theMusic.Play();

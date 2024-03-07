@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     //public BeatScroller theBS;
     public TopToDownScroller theTopToDown;
     public RightToCenterScroller theRightToCenter;
+    public LeftToCenterScroller theLeftToCenter;
     public Left45Scroller theLeft45;
     public Right45Scroller theRight45;
 
@@ -34,6 +35,14 @@ public class GameManager : MonoBehaviour
     //public TMP_Text multiplier;
 
 
+    public GameObject WinCanvas;
+    public GameObject LoseCanvas;
+
+
+
+   
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +51,14 @@ public class GameManager : MonoBehaviour
         //multiplier.text = "Multipier:x1";
         scoreText.text = "Score: 0";
         //currentMultiplier = 1;
+
+        WinCanvas.SetActive(false);
+        LoseCanvas.SetActive(false);
+
+
+
+
+
     }
 
     // Update is called once per frame
@@ -58,17 +75,20 @@ public class GameManager : MonoBehaviour
                 theRightToCenter.hasStarted = true;
                 theLeft45.hasStarted = true;
                 theRight45.hasStarted = true;
+                theLeftToCenter.hasStarted = true;
 
-                theCC.hasStarted = true;
+                //theCC.hasStarted = true;
 
                 theMusic.Play();
             }
         }
+        Ending();
     }
 
     public void NoteHit()
     {
-        Debug.Log("hit on time");
+        //Debug.Log("hit on time");
+        
 
 
 
@@ -78,8 +98,25 @@ public class GameManager : MonoBehaviour
 
     public void NoteMissed()
     {
-        Debug.Log("You miss");
+        //Debug.Log("You miss");
+        
+
+    }
 
 
+    public void Ending()
+    {
+        if (currentScore >= 500)
+        {
+            //Debug.Log("You Win");
+            WinCanvas.SetActive(true);
+            LoseCanvas.SetActive(false);
+        }
+        if (currentScore < 100)
+        {
+            //Debug.Log("You Lose");
+            LoseCanvas.SetActive(true);
+            WinCanvas.SetActive(false);
+        }
     }
 }

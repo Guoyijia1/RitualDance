@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log("hit on time");
         
-
+        //play succssful sound
 
 
         currentScore += scorePerNote;
@@ -99,7 +99,8 @@ public class GameManager : MonoBehaviour
     public void NoteMissed()
     {
         //Debug.Log("You miss");
-        
+
+        //play failure sound.
 
     }
 
